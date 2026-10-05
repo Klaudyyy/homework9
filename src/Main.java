@@ -15,26 +15,28 @@ public class Main {
             }
             if (value < min)
                 min = value;
-            }
-            float average = (float) sum / inputArray1.length;
-            float[] outputArray1 = {sum, max, min, average};
-            for (int i = 0; i < inputArray1.length; i++) {
-                System.out.print(inputArray1[i] + "  ");
+        }
+        float average = (float) sum / inputArray1.length;
+        float[] outputArray1 = {sum, max, min, average};
+        for (int i = 0; i < inputArray1.length; i++) {
+            System.out.print(inputArray1[i] + "  ");
 
-            }
-            System.out.println();
+        }
+        System.out.println();
 
-            for (int i = 0; i < outputArray1.length; i++) {
-                System.out.print(outputArray1[i] + " ");
-            }
-            System.out.println();
+        for (int i = 0; i < outputArray1.length; i++) {
+            System.out.print(outputArray1[i] + " ");
+        }
+        System.out.println();
 
 
         int[] inputArray2 = {2500, 3000, 10000, 13000, 18000};
         double[] outputArray2 = new double[5];
-            double tax  = 0.13;
-        for (int i = 0; i < inputArray2.length; i++) {
-            outputArray2[i] = inputArray2[i] * tax;
+        double tax = 0.13;
+        int index1 = 0;
+        for (int value : inputArray2) {
+            outputArray2[index1] = value * tax;
+            index1++;
         }
         System.out.println("Входной массив (выплаты): " + Arrays.toString(inputArray2));
         System.out.println("Выходной массив (налог 13%): " + Arrays.toString(outputArray2));
@@ -55,33 +57,35 @@ public class Main {
         System.out.println("Выходной массив: " + Arrays.toString(outputArray3));
 
 
-
-        int[] inputArray4 = {2500 , 5700, 1700, -3500 , 12500};
-        boolean outputArray4 = true;
+        int[] inputArray4 = {2500, 5700, 1700, -3500, 12500};
+        boolean[] outputArray4 = new boolean[1];
+        outputArray4[0] = true;
         int badValue = 0;
+
         for (int balance : inputArray4) {
             if (balance < 0) {
-                outputArray4 = false;
+                outputArray4[0] = false;
                 badValue = balance;
                 break;
             }
         }
         System.out.println(Arrays.toString(inputArray4));
-        System.out.println(outputArray4);
-        if (!outputArray4) {
+        System.out.println(Arrays.toString(outputArray4));
+        if (!outputArray4[0]) {
             System.out.println(" проблемное значение :" + badValue);
 
 
             int[] inputArray5 = {190000, 98500, -194000, 458000, 98788};
-            int outputArray5 = 0;
-            for (int i = 0; i < inputArray5.length; i++)
-                if (inputArray5[i] > 0)
-                    outputArray5 ++;
-            System.out.println(Arrays.toString(inputArray5));
-            System.out.println("Месяцев рентабельно " + outputArray5);
+            int[] outputArray5 = new int[1];
+            for (int value : inputArray5) {
+                if (value > 0)
+                    outputArray5[0]++;
+                System.out.println(Arrays.toString(inputArray5));
+                System.out.println("Месяцев рентабельно " + outputArray5[0]);
+
+            }
 
         }
-
-        }
-        }
+    }
+}
 
